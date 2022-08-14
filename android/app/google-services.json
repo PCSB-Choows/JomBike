@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024877396822",
+    "project_id": "jombike-f425c",
+    "storage_bucket": "jombike-f425c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024877396822:android:ca117b6c680307adf4ccf7",
+        "android_client_info": {
+          "package_name": "com.jombike"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024877396822-2cd78f7n4764pdvd6h5kpd2cjc8krnk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARmKIKTcQNAEn4EAvVGVEzL4HfE4d-Y9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024877396822-2cd78f7n4764pdvd6h5kpd2cjc8krnk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
