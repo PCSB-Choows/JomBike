@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from "./navigation/Login";
 import Home from "./navigation/Home";
+import RentDetail from  './navigation/RentDetail';
 const Stack = createNativeStackNavigator();
 //https://stackoverflow.com/questions/72755476/invariant-violation-viewproptypes-has-been-removed-from-react-native-migrate-t
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name='Login' component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerBackButtonMenuEnabled: false, headerBackVisible: false }} />
+        <Stack.Screen name='RentDetail' component={RentDetail} options={({ route }) => ({ title: route.params.header })}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,12 +4,12 @@ import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
-
+import BarCodeScanner from '../component/BarCodeScannerModal';
+import RentDetailModal from '../component/RentDetailModal';
 
 function Home({ navigation }) {
     const [modalVisible, setModalVisible] = React.useState(false);
     const [detailModalVisible, setdetailModalVisible] = React.useState(false);
-    const [RentTime, setRentTime] = React.useState('0');
     const [BikeNum , setBikeNum] = React.useState('');
     const BikeLocation = [
         {
@@ -19,10 +19,6 @@ function Home({ navigation }) {
             description: "Description bike 1"
         }
     ]
-    const onChanged = (text) => {
-        setRentTime(text.replace(/[^0-9]/g, ''))
-
-    }
     const onSuccess = (e) => {
         if(e.data){
             setModalVisible(false); setdetailModalVisible(true)
@@ -52,52 +48,9 @@ function Home({ navigation }) {
                     longitudeDelta: 0.0421,
                 }} />
             </MapView>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <QRCodeScanner
-                        onRead={onSuccess}
-                        flashMode={RNCamera.Constants.FlashMode.torch}
-                        bottomContent={
-                            <>
-                                <TouchableOpacity style={[styles.RentBtn]} onPress={() => { setModalVisible(false) }}>
-                                    <Text style={styles.RentWord}>Close</Text>
-                                </TouchableOpacity>
-                            </>
-                        }
-                    />
-                </View>
-            </Modal>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={detailModalVisible}
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <View style={styles.rowitem}>
-                        <Text style={{ width: '100%' }}>Please Enter The Following Information</Text>
-                    </View>
-                    <View style={styles.rowitem}>
-                        <Text style={{ width: '30%' }}>Time(Min)</Text>
-                        <TextInput style={{ width: '70%', borderWidth: 1, padding: 3 }} textAlign='center' value={RentTime} onChangeText={onChanged} />
-                    </View>
-                    <TouchableOpacity style={[styles.RentBtn, { bottom: 80 }]} onPress={() => { setModalVisible(false) }}>
-                        <Text style={styles.RentWord}>Confirm</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => { setdetailModalVisible(false) }} style={styles.RentBtn}>
-                        <Text style={styles.RentWord}>Close</Text>
-                    </TouchableOpacity>
-                </View>
-            </Modal>
+            <BarCodeScanner modalVisible={modalVisible} setModalVisible={setModalVisible} onSuccess={onSuccess}/>
+            <RentDetailModal detailModalVisible={detailModalVisible} setdetailModalVisible={setdetailModalVisible} navigation={navigation}/>
+            
             <TouchableOpacity style={styles.RentBtn} onPress={() => { setModalVisible(true) }}>
                 <Text style={styles.RentWord}>RENT A BIKE</Text>
             </TouchableOpacity>
