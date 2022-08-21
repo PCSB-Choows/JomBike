@@ -1,33 +1,26 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Button, Modal, Pressable, Alert } from 'react-native';
 
-function RentDetail({ route, navigation }) {
-    const { itemId, otherParam, Renttime } = route.params;
+function NearestParkingPoint({navigation }) {
 
-    const GoToWhereToPark = ()=>{
-        navigation.navigate('WhereToPark');
-    }
     return (
         <View style={styles.container}>
             <View style={styles.RowView}> 
                 <View style={styles.Wording}>
-                    <Text style={[styles.DetailWord , {textAlign:'left',alignSelf:'flex-start'}]}>Starting Time</Text>
+                    <Text style={[styles.DetailWord , {textAlign:'left',alignSelf:'flex-start'}]}>KA Block</Text>
                 </View>
                 <View style={styles.Wording}>
-                    <Text style={styles.DetailWord}>9.00 a.m</Text>
+                    <Text style={styles.DetailWord}>0.8 KM</Text>
                 </View>
             </View>
             <View style={styles.RowView}> 
                 <View style={styles.Wording}>
-                    <Text style={[styles.DetailWord , {textAlign:'left',alignSelf:'flex-start'}]}>Remaining Time</Text>
+                    <Text style={[styles.DetailWord , {textAlign:'left',alignSelf:'flex-start'}]}>KB Block</Text>
                 </View>
                 <View style={styles.Wording}>
-                    <Text style={styles.DetailWord}>20 Min</Text>
+                    <Text style={styles.DetailWord}>0.8 KM</Text>
                 </View>
             </View>
-            <TouchableOpacity style={styles.RentBtn} onPress={GoToWhereToPark}>
-                <Text style={styles.RentWord}>WHERE TO PARK</Text>
-            </TouchableOpacity>
         </View>
     )
 };
@@ -72,4 +65,4 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 });
-export default RentDetail;
+export default NearestParkingPoint;
