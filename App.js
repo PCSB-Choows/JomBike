@@ -14,7 +14,12 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer >
-      <Stack.Navigator screenOptions={{headerStyle:{backgroundColor:'#5642C2'}, headerTitleAlign:'center'}}>
+      <Stack.Navigator screenOptions={{
+        headerTintColor:'black', 
+        headerStyle:{backgroundColor:'#988FCA'},
+        headerTitleAlign:'center',
+        navigationBarHidden:true
+     }}>
         <Stack.Screen name='IntroPage' component={IntroPage} options={{headerShown:false}}/>
         <Stack.Screen name='Login' component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerBackButtonMenuEnabled: false, headerBackVisible: false, title:'FIND A BICYCLE' }} />
